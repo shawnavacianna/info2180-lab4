@@ -12,7 +12,7 @@ window.onload = function() {
 
 function overBoundary() {
     loser = true;
-	document.getElementById("status").textContent = "You lose!";
+	document.getElementById("status").textContent = "You lose!"; //Exercise 5
     var boundaries = document.querySelectorAll("div#maze div.boundary");
     for (var i = 0; i < boundaries.length; i++) {
         boundaries[i].classList.add("youlose");
