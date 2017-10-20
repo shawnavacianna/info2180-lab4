@@ -1,8 +1,14 @@
 window.onload = function() {
-	document.getElementById("boundary1").addEventListener("mouseover",overBoundary);
-  };
-  
-  function overBoundary() {
-      // $("boundary1").style.backgroundColor = "#ff8888";
-      document.getElementById("boundary1").classList.add("youlose");
-  }
+    var boundaries = document.querySelectorAll("div#maze div.boundary");
+    for (var i = 0; i < boundaries.length; i++) {
+        boundaries[i].onmouseover = overBoundary;
+
+    }
+};
+
+function overBoundary() {
+    var boundaries = document.querySelectorAll("div#maze div.boundary");
+    for (var i = 0; i < boundaries.length; i++) {
+        boundaries[i].classList.add("youlose");
+    }
+}
