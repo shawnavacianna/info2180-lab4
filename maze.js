@@ -1,4 +1,8 @@
+var loser = false;  // whether the user has hit a wall
+
 window.onload = function() {
+    document.getElementById("start").onclick = startClick;
+    document.getElementById("end").onmouseover = overEnd;
     var boundaries = document.querySelectorAll("div#maze div.boundary");
     for (var i = 0; i < boundaries.length; i++) {
         boundaries[i].onmouseover = overBoundary;
@@ -7,8 +11,23 @@ window.onload = function() {
 };
 
 function overBoundary() {
+    loser = true;
     var boundaries = document.querySelectorAll("div#maze div.boundary");
     for (var i = 0; i < boundaries.length; i++) {
         boundaries[i].classList.add("youlose");
+    }
+}
+
+function startClick() {
+    loser = false;
+    var boundaries = document.querySelectorAll("div#maze div.boundary");
+    for (var i = 0; i < boundaries.length; i++) {
+        boundaries[i].classList.remove("youlose");
+    }
+}
+
+function overEnd() {
+    if (!loser) {
+        document.getElementById("status").textContent = "You win! :]";
     }
 }
